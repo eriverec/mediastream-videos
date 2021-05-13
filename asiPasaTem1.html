@@ -15,7 +15,7 @@
     <div class="container">
         <h2>Ais Pasa - Temporada 1</h2>
         <hr>
-        <div class="serie secretos row">
+        <div class="serie asipasa row">
 
         </div>
     </div>
@@ -51,7 +51,7 @@
                 contentType: 'application/json; charset=utf-8',
                 success: function (result) {
                     let data = result.data;
-                    data.splice(0, 1); //en el caso de secretos se elimina el primero, verificar con las otras series si el primero tiene content o no
+                    //data.splice(0, 1); //en el caso de secretos se elimina el primero, verificar con las otras series si el primero tiene content o no
                     data = sortByKeyAsc(data, 'title');
 
                     //data.sort(function(a, b){return a-b});
@@ -76,7 +76,7 @@
             });
         }
         $(document).ready(function () {
-            getVideoList(".secretos", "60786fd64ba68d0825603eb1/season/60786fd64ba68d0825603eb2/episode");
+            getVideoList(".asipasa", "60786fd64ba68d0825603eb1/season/60786fd64ba68d0825603eb2/episode");
         });
     </script>
 </body>
