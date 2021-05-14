@@ -1,6 +1,6 @@
 .slick-prev:before,
 .slick-next:before {
-  color: black !important;
+  color: #0d6efd !important;
 }
 
 .video iframe {
@@ -9,8 +9,26 @@
   height: 242px;
 }
 
+.slick-slide img {
+  height: 300px;
+  object-fit: cover;
+}
 
-.card{
+.card {
   width: 380px;
-    margin: auto;
+  margin: auto;
+}
+
+.slick-prev::before {
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  content: "\f100" !important;
+  font-size: 38px !important;
+}
+
+.slick-next::before {
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  content: "\f101" !important;
+  font-size: 38px !important;
 }
