@@ -32,3 +32,179 @@
   content: "\f101" !important;
   font-size: 38px !important;
 }
+
+.navbar-light .navbar-brand {
+  color: #e50914 !important;
+  line-height: normal;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 30px;
+}
+
+.img-fluid {
+  width: 100%;
+  height: 100vh !important;
+  object-fit: cover;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transform: none;
+}
+
+.concord-img-gradient {
+  background: rgba(0, 0, 0, 0.4);
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    from(rgba(0, 0, 0, 0.8)),
+    color-stop(60%, rgba(0, 0, 0, 0)),
+    to(rgba(0, 0, 0, 0.8))
+  );
+  background-image: -webkit-linear-gradient(
+    bottom,
+    rgba(0, 0, 0, 0.8) 0,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  background-image: -moz-
+    oldlinear-gradient(
+      bottom,
+      rgba(0, 0, 0, 0.8) 0,
+      rgba(0, 0, 0, 0) 60%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+  background-image: -o-linear-gradient(
+    bottom,
+    rgba(0, 0, 0, 0.8) 0,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.concord-img-gradient {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(50%, rgba(0, 0, 0, 0)),
+      to(rgba(0, 0, 0, 0.7))
+    ),
+    radial-gradient(50% 100%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%);
+  background-image: -webkit-linear-gradient(
+      bottom,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),
+    -webkit-radial-gradient(50% 100%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7)
+          100%);
+  background-image: -moz-
+      oldlinear-gradient(bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%),
+    -moz- oldradial-gradient(50% 100%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7)
+          100%);
+  background-image: -o-linear-gradient(
+      bottom,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),
+    -o-radial-gradient(50% 100%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%);
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),
+    radial-gradient(50% 100%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.contenedor {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.contenedor-portada {
+  position: fixed;
+  bottom: 0;
+  color: #f1f1f1;
+  width: 100%;
+}
+
+.contenedor-portada video {
+  width: 100%;
+}
+
+.card-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card-text-portada {
+  position: absolute;
+  top: 61%;
+  left: 28%;
+  transform: translate(-50%, -50%);
+}
+
+.card-text .intro {
+  color: white;
+}
+
+.form-c {
+  /*margin: 15px;*/
+  margin: 15px 0px;
+}
+
+.login-registrer {
+  max-width: 24rem !important;
+}
+
+.login-registrer-body {
+  padding: 7rem 2rem !important;
+}
+
+.dark-c {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
+.padd {
+  padding: 10px 0px;
+  display: block;
+  text-decoration: none;
+  color: darkgray;
+}
+
+.bg-avatar img {
+  width: 100%;
+  border: solid 3px #333;
+}
+
+.bg-avatar img:hover {
+  border: solid 3px white;
+}
+
+a:hover {
+  color: white !important;
+}
+
+
+.font{
+font-size: 5rem;
+}

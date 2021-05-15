@@ -32,22 +32,149 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/solid.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/brands.min.css"
     />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
-    <div class="container">
-      <h2 class="text-center text-uppercase mt-3">Hola! Netflix Ecuavisa</h2>
-      <hr />
-      <div class="serie tri" id="contenido"></div>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">ECUAFLIX</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse nav-c" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+          <div class="d-flex">
+            <button id="login" class="btn btn-danger" type="submit">
+              Iniciar sesión
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="contenedor " >
+      <img src="assets/netflix.jpg" class="img-fluid" alt="ecuavisa" />
+      <div class="concord-img-gradient"></div>
+      <div class="card-text">
+        <div class="intro">
+          <h1>Películas y series ilimitadas y mucho más.</h1>
+          <h3>Disfruta donde quieras. Cancela cuando quieras.</h3>
+          <p class="email-form-title">
+            ¿Quieres ver Netflix ya? Ingresa tu email para crear una cuenta o
+            reiniciar tu membresía de Netflix.
+          </p>
+          <form action="">
+            <div class="input-group input-group-lg mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Recipient's username"
+                aria-label="Recipient's username"
+                aria-describedby="button-addon2"
+              />
+              <button class="btn btn-danger" type="button" id="button-addon2">
+                Comenzar
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="card dark-c mb-3 login-registrer" style="display: none">
+          <div class="card-body login-registrer-body">
+            <h1 class="mb-5 text-light">Inicia sesión</h1>
+            <form class="form-floating form-c">
+              <input
+                type="email"
+                class="form-control"
+                id="floatingInputValue"
+                placeholder="name@example.com"
+                value="test@example.com"
+              />
+              <label for="floatingInputValue">Input with value</label>
+            </form>
+            <form class="form-floating form-c">
+              <input
+                type="password"
+                class="form-control"
+                id="floatingInputValue"
+                placeholder="name@example.com"
+                value="test@example.com"
+              />
+              <label for="floatingInputValue">Input with pasword</label>
+            </form>
+            <div class="d-grid gap-2">
+              <button type="button" class="btn btn-danger btn-lg" id="iniciar">
+                Iniciar sesión
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="perfiles row g-0" style="display: none">
+          <div class="row g-0">
+            <div class="col-sm-6 col-md-4">
+              <a href="portada.html" class="shadow rounded m-2 padd bg-avatar" id="perfil-eri">
+                <img src="assets/avatar-1.png" alt="" />
+                <h3 class="text-color mt-2">Eri</h3>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-4">
+              <a href="#" class="shadow rounded m-2 padd bg-avatar">
+                <img src="assets/avatar-2.png" alt="" />
+                <h3 class="text-color mt-2">Andre</h3>
+              </a>
+            </div>
+            <div class="col-6 col-md-4">
+              <a href="#" class="shadow rounded m-2 padd bg-avatar">
+                <img src="assets/avatar-3.png" alt="" />
+                <h3 class="text-color mt-2">Gaby</h3>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    
+
+    <script>
+      $("#login").click(function () {
+        $(".login-registrer").show("slow");
+        $(".intro").hide();
+        $(".navbar .nav-c").attr("style", "display:none!important");
+        
+      });
+      $("#iniciar").click(function () {
+        $(".perfiles").show("slow");
+        $(".login-registrer").hide();
+      });
+
+      $("#perfil-eri").click(function () {
+        $( ".contenedor" ).addClass( "animate__animated animate__fadeOut" );
+      });
+    </script>
   </body>
 </html>
