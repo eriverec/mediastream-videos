@@ -47,7 +47,7 @@ function getVideos(serieid, seasonsid) {
                     $("#vid-" + serieid).append(`
                     <div class="col-md-3 video">
                         <a id="img-${id}" href="javascript:;">
-                            <img class="netimg d-block card-img-top" src="${serie.images[0].path}" alt="${serie.title}" >
+                            <img class="netimg d-block w-100" src="${serie.images[0].path}" alt="${serie.title}" >
                         </a>
                         <div class="p-3 m-2 text-white season-title">${serie.title}</div>
                     </div>
