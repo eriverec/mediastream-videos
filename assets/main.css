@@ -62,3 +62,9 @@ html, body{
     color: #8a8a8a;
     cursor: pointer;
 }
+
+
+.netimg {
+    max-height: 230px;
+    object-fit: cover;
+}

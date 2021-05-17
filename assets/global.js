@@ -26,7 +26,7 @@ function getShows() {
 
 function getVideos(serieid, seasonsid) {
     $.ajax({
-        url: "https://platform.mediastre.am/api/show/" + serieid + "/season/" + seasonsid + "/episode?limit=5",
+        url: "https://platform.mediastre.am/api/show/" + serieid + "/season/" + seasonsid + "/episode?limit=8",
         type: "GET",
         dataType: "json",
         headers: {
@@ -35,7 +35,11 @@ function getVideos(serieid, seasonsid) {
         contentType: "application/json; charset=utf-8",
         success: function (result) {
             let data = result.data;
-            data.splice(0, 1);
+            //data.splice(0, 1);
+            let str = data[0].title;
+            if (str.indexOf("Episodio")) {
+                data = sortByKeyAsc(data, "title");
+            }
             data = sortByKeyAsc(data, "title");
             $.each(data, function (key, serie) {
                 if (serie.content && serie.content[0].value._id != null) {
@@ -43,11 +47,11 @@ function getVideos(serieid, seasonsid) {
                     $("#vid-" + serieid).append(`
                     <div class="col-md-3 video">
                         <a id="img-${id}" href="javascript:;">
-                            <img class="d-block card-img-top" src="${serie.images[0].path}" alt="${serie.title}" >
+                            <img class="netimg d-block card-img-top" src="${serie.images[0].path}" alt="${serie.title}" >
                         </a>
                         <div class="p-3 m-2 text-white season-title">${serie.title}</div>
                     </div>
-                `);
+                    `);
                 }
             });
         },
