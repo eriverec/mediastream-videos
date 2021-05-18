@@ -10,8 +10,7 @@ function getShows() {
         contentType: "application/json; charset=utf-8",
         success: function (result) {
             let data = result.data;
-
-            //$(".show-title").replaceWith(/\s+/g, "-");
+            
             $.each(data, function (key, serie) {
                 $("#shows").append(`
                 <section class="show-${serie._id} mb-5">
