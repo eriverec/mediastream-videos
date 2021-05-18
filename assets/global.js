@@ -114,6 +114,9 @@ function verSerie(id) {
             keyboard: false
         });
         myModal.show();
+        $('.select-serie').on('change', function () {
+            getVideoList(this.value);
+        });
     } else {
         let image = "";
         if (serieData.images) {
@@ -134,14 +137,17 @@ function verSerie(id) {
             `;
         }
 
-        let selectSeason = '<select id="seasons-' + serieData._id + '" class="form-select" aria-label="Serie select">';
+        let selectSeason = '<select id="seasons-' + serieData._id + '" class="form-select select-serie" aria-label="Serie select">';
         let contSeason = 1;
+        let jsons = [];
         serieData.seasons.forEach(season => {
-            selectSeason += '<option value="' + season._id + '">Temporada ' + contSeason + '</option>';
+            let json = '{"season":"' + season._id + '","serie": "' + serieData._id + '"}';
+            jsons.push(json);
+            selectSeason += "<option value='" + json + "'>Temporada " + contSeason + "</option>";
             contSeason++;
         });
         selectSeason += '</select>';
-
+        getVideoList(jsons[0]);
         $("body").append(`
                 
             <div class="modal fade" id="serieModal-${serieData._id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -155,8 +161,8 @@ function verSerie(id) {
                    ${image}
                    ${sinopsis}
                    ${selectSeason}
-                   <div class="episode-list">
-                   </div>
+                   <ul class="list-group episode-list">
+                   </ul>
                 </div>
             </div>
             </div>
@@ -166,12 +172,53 @@ function verSerie(id) {
             keyboard: false
         });
         myModal.show();
+        $('.select-serie').on('change', function () {
+            getVideoList(this.value);
+        });
     }
-
-
 }
-
-
+/**
+ * Mostrar lista de videos en el modal
+ * @param {*} json 
+ */
+function getVideoList(json) {
+    let jsonData = JSON.parse(json);
+    $.ajax({
+        url: "https://platform.mediastre.am/api/show/" + jsonData.serie + "/season/" + jsonData.season + "/episode",
+        type: "GET",
+        dataType: "json",
+        headers: {
+            "X-API-Token": "864f50d59f92906175b3788cfce6d5a0",
+        },
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            let data = result.data;
+            let str = data[2].title.toLowerCase();
+            if (str.includes("episodio")) {
+                data = sortByKeyAsc(data, "title");
+            }
+            $("#serieModal-" + jsonData.serie + " .episode-list").empty();
+            $.each(data, function (key, episode) {
+                if (episode.content && episode.content[0].value._id != null) {
+                    let id = key;
+                    $("#serieModal-" + jsonData.serie + " .episode-list").append(`
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <img class="netimg d-block w-100 h-100 hvr-grow" src="${episode.images[0].path}" alt="${episode.title}" >
+                                </div>
+                                <div class="col-md-10">
+                                    ${episode.title}
+                                </div>
+                            </div>
+                        </li>
+                    `);
+                }
+            });
+        },
+        error: function (error) { },
+    });
+}
 
 $(document).ready(function () {
     localStorage.clear();

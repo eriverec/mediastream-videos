@@ -98,3 +98,9 @@ html, body{
     height: 200px;
     overflow: hidden;
 }
+
+.episode-list {
+    max-height: 380px;
+    margin-top: 12px;
+    overflow: auto;
+}
