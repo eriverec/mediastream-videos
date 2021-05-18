@@ -40,7 +40,7 @@ function getShows() {
 
 function getVideos(serieid, seasonsid) {
     $.ajax({
-        url: "https://platform.mediastre.am/api/show/" + serieid + "/season/" + seasonsid + "/episode?limit=8",
+        url: "https://platform.mediastre.am/api/show/" + serieid + "/season/" + seasonsid + "/episode?limit=15",
         type: "GET",
         dataType: "json",
         headers: {
@@ -63,7 +63,7 @@ function getVideos(serieid, seasonsid) {
                 
                         <div class="col-md-3 video">
                             <div class="episodio"> 
-                                <a id="img-${id}" href="javascript:;" onclick="reproductor('${serie.content[0].value._id}')">
+                                <a id="img-${id}" href="javascript:;" onclick="reproductor('${serieid}','${serie.content[0].value._id}')">
                                     <img class="netimg d-block w-100 h-200 hvr-grow" src="${serie.images[0].path}" alt="${serie.title}" >
                                 </a>
                                 <div class="pt-3 m-2 text-white season-title">${serie.title}</div>
@@ -205,7 +205,9 @@ function getVideoList(json) {
                         <li class="list-group-item">
                             <div class="row">
                                 <div class="col-md-2">
-                                    <img class="netimg d-block w-100 h-100 hvr-grow" src="${episode.images[0].path}" alt="${episode.title}" >
+                                    <a href="javascript:;" onclick="reproductor('${jsonData.serie}','${episode.content[0].value._id}')">
+                                        <img class="netimg d-block w-100 h-100 hvr-grow" src="${episode.images[0].path}" alt="${episode.title}" >
+                                    </a>
                                 </div>
                                 <div class="col-md-10">
                                     ${episode.title}
@@ -220,7 +222,12 @@ function getVideoList(json) {
     });
 }
 
-function reproductor(codigo) {
+function reproductor(serieid, codigo) {
+    if ($("#serieModal-" + serieid).length > 0) {
+        $("#serieModal-" + serieid + ' .btn-close').click();
+    }
+
+
     $("#modalVideo .modal-body").empty();
     $("#modalVideo .modal-body").append(`
         <div id="videoSerie" class="embed-responsive embed-responsive-16by9">
