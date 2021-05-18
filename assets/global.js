@@ -10,19 +10,29 @@ function getShows() {
         contentType: "application/json; charset=utf-8",
         success: function (result) {
             let data = result.data;
+
+            //$(".show-title").replaceWith(/\s+/g, "-");
             $.each(data, function (key, serie) {
                 $("#shows").append(`
-                <section class="show-${serie._id}">
-                    <h4 class="show-title text-white">${serie.title} <a href="javascript:;" class="access">Ver más</a></h4>
-                    <div class="row" id="vid-${serie._id}"></div>
+                <section class="show-${serie._id} mb-5">
+                    <h2 class="show-title text-white">${serie.title} 
+                        <a href="${(serie.title.toLowerCase().replace(/\s+/g, "-"))}.html" class="access float-end btn btn-danger btn-sm">Ver más</a>
+                    </h2>
+                         <div class="row" id="vid-${serie._id}"></div>
+                   
                 </section>
                 `);
                 getVideos(serie._id, serie.seasons[0]._id);
             });
+            
+            
+           
         },
         error: function (error) { },
     });
 }
+
+
 
 function getVideos(serieid, seasonsid) {
     $.ajax({
@@ -45,15 +55,35 @@ function getVideos(serieid, seasonsid) {
                 if (serie.content && serie.content[0].value._id != null) {
                     let id = key;
                     $("#vid-" + serieid).append(`
-                    <div class="col-md-3 video">
-                        <a id="img-${id}" href="javascript:;">
-                            <img class="netimg d-block w-100" src="${serie.images[0].path}" alt="${serie.title}" >
-                        </a>
-                        <div class="p-3 m-2 text-white season-title">${serie.title}</div>
-                    </div>
+                   
+                        <div class="col-md-3 video ">
+                            <div class=""> 
+                                <a id="img-${id}" href="javascript:;">
+                                    <img class="netimg d-block w-100 h-200 hvr-grow" src="${serie.images[0].path}" alt="${serie.title}" >
+                                </a>
+                                <div class="pt-3 m-2 text-white season-title">${serie.title}</div>
+                            </div>
+                        </div>
+                    
                     `);
                 }
             });
+
+            // $("#vid-" + serieid).slick({
+            //     slidesToShow: 3,
+            //     slidesToScroll: 1,
+            //     dots: false,
+            //     centerMode: false,
+            // });
+
+            $("#vid-" + serieid).flickity({
+                // options
+                cellAlign: 'left',
+                contain: true,
+                pageDots: false
+              });
+            
+           
         },
         error: function (error) { },
     });

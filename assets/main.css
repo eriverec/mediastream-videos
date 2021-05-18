@@ -11,14 +11,14 @@
 .slick-prev::before {
   font-family: "Font Awesome 5 Free" !important;
   font-weight: 900 !important;
-  content: "\f100" !important;
+  content: "\f053" !important;
   font-size: 38px !important;
 }
 
 .slick-next::before {
   font-family: "Font Awesome 5 Free" !important;
   font-weight: 900 !important;
-  content: "\f101" !important;
+  content: "\f054" !important;
   font-size: 38px !important;
 }
 
@@ -53,8 +53,8 @@ html, body{
   cursor: default;
   border-bottom: 1px solid #cccccc0a;
   padding-bottom: 8px;
-  font-size: 15px;
-  text-transform: uppercase;
+  font-size: 25px;
+  /*text-transform: uppercase;*/
 }
 
 .access {
@@ -67,4 +67,28 @@ html, body{
 .netimg {
     max-height: 230px;
     object-fit: cover;
+}
+
+
+
+.card {
+  margin: 30px;
+}
+
+
+.card iframe{
+  width: 100%;
+    height: 294px;
+}
+
+
+.video {
+  width: 50%; /* half-width */
+  height: 260px;
+  margin-right: 20px;
+}
+
+
+.h-200{
+  height: 200px;
 }
