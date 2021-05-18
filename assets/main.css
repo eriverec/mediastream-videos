@@ -92,3 +92,9 @@ html, body{
 .h-200{
   height: 200px;
 }
+
+.img-serie {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
