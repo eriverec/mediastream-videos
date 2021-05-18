@@ -63,7 +63,7 @@ function getVideos(serieid, seasonsid) {
                 
                         <div class="col-md-3 video">
                             <div class="episodio"> 
-                                <a id="img-${id}" href="javascript:;">
+                                <a id="img-${id}" href="javascript:;" onclick="reproductor('${serie.content[0].value._id}')">
                                     <img class="netimg d-block w-100 h-200 hvr-grow" src="${serie.images[0].path}" alt="${serie.title}" >
                                 </a>
                                 <div class="pt-3 m-2 text-white season-title">${serie.title}</div>
@@ -218,6 +218,19 @@ function getVideoList(json) {
         },
         error: function (error) { },
     });
+}
+
+function reproductor(codigo) {
+    $("#modalVideo .modal-body").empty();
+    $("#modalVideo .modal-body").append(`
+        <div id="videoSerie" class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="//mdstrm.com/embed/${codigo}" allowfullscreen></iframe>
+        </div>
+    `);
+    var myModal = new bootstrap.Modal(document.getElementById('modalVideo'), {
+        keyboard: false
+    });
+    myModal.show();
 }
 
 $(document).ready(function () {
