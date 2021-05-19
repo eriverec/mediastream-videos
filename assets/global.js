@@ -205,7 +205,7 @@ function getVideoList(json) {
                         <li class="list-group-item">
                             <div class="row">
                                 <div class="col-md-2">
-                                    <a href="javascript:;" onclick="reproductor('${jsonData.serie}','${episode.content[0].value._id}')">
+                                    <a id="episode-${episode._id}" href="javascript:;" onclick="reproductor('${jsonData.serie}','${episode.content[0].value._id}')">
                                         <img class="netimg d-block w-100 h-100 hvr-grow" src="${episode.images[0].path}" alt="${episode.title}" >
                                     </a>
                                 </div>
