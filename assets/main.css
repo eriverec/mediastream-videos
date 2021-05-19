@@ -95,8 +95,10 @@ html, body{
 
 .img-serie {
     position: relative;
-    height: 200px;
+    height: 350px;
     overflow: hidden;
+    width: 600px;
+    margin: auto;
 }
 
 .episode-list {
