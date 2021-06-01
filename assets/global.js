@@ -7,7 +7,7 @@ function getShows() {
         type: "GET",
         dataType: "json",
         headers: {
-            "X-API-Token": "864f50d59f92906175b3788cfce6d5a0",
+            "X-API-Token": "215979b6242fdd636897c19bb6428cb5",
         },
         contentType: "application/json; charset=utf-8",
         success: function (result) {
@@ -44,7 +44,7 @@ function getVideos(serieid, seasonsid) {
         type: "GET",
         dataType: "json",
         headers: {
-            "X-API-Token": "864f50d59f92906175b3788cfce6d5a0",
+            "X-API-Token": "215979b6242fdd636897c19bb6428cb5",
         },
         contentType: "application/json; charset=utf-8",
         success: function (result) {
@@ -188,7 +188,7 @@ function getVideoList(json) {
         type: "GET",
         dataType: "json",
         headers: {
-            "X-API-Token": "864f50d59f92906175b3788cfce6d5a0",
+            "X-API-Token": "215979b6242fdd636897c19bb6428cb5",
         },
         contentType: "application/json; charset=utf-8",
         success: function (result) {
